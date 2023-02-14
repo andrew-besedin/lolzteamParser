@@ -10,7 +10,7 @@ dotenv.config();
     await main();
 })();
 
-async function authentificate(page) {
+async function authenticate(page) {
     const isRefreshed = await page.evaluate(async (login, pass) => {
         if (document.querySelector(".loginForm--bottomBar")) {
             document.querySelector('[name="login"]').value = login;
@@ -54,7 +54,7 @@ async function main() {
                 await page.goto(link, { waitUntil: "load" });
                 await new Promise(res => setTimeout(res, 1000));
 
-                await authentificate(page);
+                await authenticate(page);
 
                 await new Promise(res => setTimeout(res, 1000));
                 await page.evaluate(() => {
