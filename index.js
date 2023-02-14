@@ -48,7 +48,7 @@ async function main() {
             if (history && history?.length !== 0) {
                 firstTime = false;
             }
-            console.log("started");
+            // console.log("started");
             const links = fs.readFileSync("./list.txt", { encoding: "utf8"}).split("\r\n");
             for (const link of links) {
                 await page.goto(link, { waitUntil: "load" });
